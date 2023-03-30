@@ -11,7 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: MDD4All.Configuration
+      PROJECT_NAME: BlazingComponents.Summernote
 
     steps:
     - name: Checkout source code
