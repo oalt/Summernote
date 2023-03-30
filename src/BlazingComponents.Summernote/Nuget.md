@@ -1,0 +1,1 @@
+﻿Forked BlazingComponents.Summernote component from https://github.com/BlazingComponents/Summernote
