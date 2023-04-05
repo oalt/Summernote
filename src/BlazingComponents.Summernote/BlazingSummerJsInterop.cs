@@ -19,7 +19,7 @@ namespace BlazingComponents.Summernote
             _id = id;
             _moduleTask = new Lazy<Task<IJSObjectReference>>(() =>
                 JsRuntime.InvokeAsync<IJSObjectReference>("import",
-                    "./_content/BlazingComponents.Summernote/SummernoteInterop.js").AsTask());
+                    "./_content/MDD4All.BlazingComponents.Summernote/SummernoteInterop.js").AsTask());
         }
 
         private IJSRuntime JsRuntime { get; }
