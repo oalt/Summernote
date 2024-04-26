@@ -61,11 +61,18 @@ export function save(id, instance, callback) {
     instance.invokeMethodAsync(callback, content);
     $(snid).summernote("destroy");
 }
+
 export function disable(id) {
     let snid = '#' + id;
     $(snid).summernote('disable');
 }
+
 export function enable(id) {
     let snid = '#' + id;
     $(snid).summernote('enable');
+}
+
+export function code(id, content) {
+    let snid = '#' + id;
+    $(snid).summernote('code', content);
 }

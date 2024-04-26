@@ -20,7 +20,12 @@ namespace BlazingComponents.Summernote
 
             set
             {
-                _markupContent = (MarkupString)value;
+                MarkupString valueToSet = (MarkupString)value;
+                if (!_markupContent.Equals(valueToSet))
+                {
+                    _markupContent = (MarkupString)value;
+                    UpdateContent(_markupContent);
+                }
             }
         }
 
@@ -33,7 +38,7 @@ namespace BlazingComponents.Summernote
 
         private void EditorUpdate(object sender, MarkupString editorText)
         {
-           _markupContent = editorText;
+            _markupContent = editorText;
             ContentChanged.InvokeAsync(Content);
         }
 
@@ -56,6 +61,14 @@ namespace BlazingComponents.Summernote
             _edit = true;
             var response = await _blazingSummerJsInterop.Edit(_markupContent);
             StateHasChanged();
+        }
+
+        private async Task UpdateContent(MarkupString markupString)
+        {
+            if (_blazingSummerJsInterop != null)
+            {
+                await _blazingSummerJsInterop.UpdateContent(markupString.ToString());
+            }
         }
     }
 }

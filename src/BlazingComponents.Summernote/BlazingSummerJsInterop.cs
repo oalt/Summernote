@@ -76,5 +76,11 @@ namespace BlazingComponents.Summernote
             var module = await _moduleTask.Value;
             await module.InvokeVoidAsync("save", _id, DotNetObjectReference.Create(this), "OnTextChange");
         }
+
+        public async Task UpdateContent(string content)
+        {
+            var module = await _moduleTask.Value;
+            await module.InvokeVoidAsync("code", _id, content);
+        }
     }
 }
